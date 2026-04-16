@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="bg-[#001736] h-dvh pt-10">
-        <div class="mx-auto max-w-3xl flex flex-col border-2 p-5 border-gray-300 rounded-lg bg-white shadow-md shadow-black">
+        <div class="mx-auto max-w-3xl flex flex-col gap-5 border-2 p-5 border-gray-300 rounded-lg bg-white shadow-md shadow-black">
             
             <div class="flex">
                 <section class="flex flex-col gap-3 max-w-[420px]">
@@ -48,13 +48,17 @@
                 </div>
             </div>
 
-            <section class="flex flex-row">
-                <button class="p-3 rounded-md bg-[#403774] text-white">Habilidades</button>
-                <button class="p-3 rounded-md bg-[#ba5624] text-white">Aprendendo</button>
+            <section>
+                <section id="skill-button-container" class="grid grid-cols-2 p-1 border-2">
+                    <button id="current-skill" class="rounded-md h-[70%] bg-white text-black border-2 border-black m-2 hover:bg-[var(--color-dark)] hover:text-white hover:border-white">Habilidades</button>
+                    <button id="learning-skill" class="rounded-md h-[70%] bg-white text-black border-2 border-black m-2 hover:bg-[var(--color-dark)] hover:text-white hover:border-white">Aprendendo</button>
+                </section>
+                <div id="skill-container" class="border-2 w-100 h-fit p-3 hidden"></div>
             </section>
 
         </div>
     </div>
 
+    <script src="./script.js"></script>
 </body>
 </html>
