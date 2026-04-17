@@ -2,7 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">=
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'var(--color-background)',
+                        surface: 'var(--color-surface)',
+                        border: 'var(--color-border)',
+                        text: 'var(--color-text)',
+                        muted: 'var(--color-text-muted)',
+                        primary: 'var(--color-primary)',
+                        accent: 'var(--color-accent)'
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Eduardo Passos</title>
 
@@ -16,7 +34,32 @@
             --color-primary: #403774;
             --color-accent: #ba5624;
             --color-dark: #000000;
+
+            --color-background: #F5F5F5;
+            --color-surface: #FFFFFF;
+            --color-border: #E5E5E5;
+
+            --color-text: #1A1A1A;
+            --color-text-muted: #6B7280;
+
+            --color-hover: #332c5e;
+            --color-accent-hover: #94451d;
         }
+
+        .dark {
+        --color-background: #0F172A;
+        --color-surface: #1E293B;
+        --color-border: #334155;
+
+        --color-text: #F1F5F9;
+        --color-text-muted: #94A3B8;
+
+        --color-primary: #6D5BD0;
+        --color-accent: #d97745;
+
+        --color-hover: #5b4bb3;
+        --color-accent-hover: #b4532a;
+    }
 
         svg {
             width: 48px;
@@ -24,33 +67,61 @@
     </style>
 </head>
 
-<body class="relative">
+    <nav class="flex items-center justify-between">
+
+        <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
+            Eduardo Passos
+        </h1>
+
+        <div class="flex items-center gap-3">
+
+            <button class="text-sm border border-gray-300 dark:border-gray-600 px-3 py-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                EN
+            </button>
+
+            <button id="theme-toggle" onclick="toggleTheme()"
+                class="text-sm border border-gray-300 dark:border-gray-600 px-3 py-1.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                🌙
+            </button>
+
+        </div>
+
+    </nav>
 
     <canvas id="bg" class="fixed inset-0 -z-10"></canvas>
-    <div class="fixed inset-0 bg-[#001736] -z-20"></div>
+    <div class="fixed inset-0 bg-[#001736] dark:bg-black -z-20"></div>
 
     <main class="py-10  min-h-screen">
-        <div class="mx-auto max-w-3xl flex flex-col gap-5 border-2 p-5 border-gray-300 rounded-lg bg-white shadow-md shadow-black">
+        <div class="mx-auto max-w-3xl flex flex-col gap-5 border-2 p-5 border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 shadow-md shadow-black dark:shadow-none">
             
             <div class="flex">
                 <section class="flex flex-col gap-3 max-w-[420px]">
                     
-                    <h1 class="text-4xl font-semibold mb-3">Ola, sou Eduardo!👋</h1>
+                    <h1 class="text-4xl font-semibold mb-3 text-gray-900 dark:text-white">
+                        Ola, sou Eduardo!👋
+                    </h1>
                 
-                    <p class="text-balance">Tenho 17 anos, sou estudante de ADS no 3° ano do ensino médio e sou brasileiro.</p>
+                    <p class="text-balance text-gray-700 dark:text-gray-300">
+                        Tenho 17 anos, sou estudante de ADS no 3° ano do ensino médio e sou brasileiro.
+                    </p>
                 
-                    <p class="text-balance">Amo programar uma solução para qualquer problema do dia-a-dia.</p>
+                    <p class="text-balance text-gray-700 dark:text-gray-300">
+                        Amo programar uma solução para qualquer problema do dia-a-dia.
+                    </p>
 
                     <section class="flex gap-4">
-                        <p class="font-semibold">Entre em contato:</p>
+                        <p class="font-semibold text-gray-900 dark:text-white">Entre em contato:</p>
+                        
                         <section class="flex gap-3">
-                            <a href="mailto:edupassosa18@email.com" class="hover:text-gray-900">
+                            <a href="mailto:edupassosa18@email.com" class="hover:text-gray-900 dark:hover:text-white">
                                 <img src="./assets/images/email.png" alt="Email" class="size-[24px]">
                             </a>
-                            <a href="https://github.com/TinhoFZ">
+
+                            <a href="https://github.com/TinhoFZ" class="hover:text-gray-900 dark:hover:text-white">
                                 <img src="./assets/images/github.png" alt="Github" class="size-[24px]">
                             </a>
-                            <a href=""> 
+
+                            <a href="" class="hover:text-gray-900 dark:hover:text-white"> 
                                 <img src="./assets/images/linkedin.png" alt="LinkedIn" class="size-[24px]">
                             </a>
                         </section>
@@ -61,7 +132,6 @@
                     <img src="./assets/images/eduardo.png" alt="Eduardo Passos" class="h-[250px] rounded-lg">
                 </div>
             </div>
-
 
             <section>
                 <h2 class="text-2xl font-semibold mb-4">Habilidades</h2>
@@ -314,6 +384,7 @@
         </div>
     </div>
 
-    <script src="./dots.js"></script>
+    <script src="theme.js"></script>
+    <script src="dots.js"></script>
 </body>
 </html>
